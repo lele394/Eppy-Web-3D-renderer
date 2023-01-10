@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web-renderer</title>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,12 +16,17 @@
 
   </body>
 
-  <script>
+  <script type="module">
+
+    import {Mesh, DrawMesh} from "./js/main.js";
+
+    let vertices = [[1, 1, 10], [1, -1, 10], [-1, -1, 0], [-1, 1, 0]];
+    let link_map = [[0, 1, 2], [0, 3, 2]];
+    var rectangle = new Mesh( vertices, link_map);
 
 
+    DrawMesh(rectangle, "red");
 
-    DrawTriangle( [[1, 1, 100], [1, -1, 100], [-1, -1, 0]], "black");   
-    DrawTriangle( [[1, 1, 100], [-1, 1, 0], [-1, -1, 0]], "red");   
 
 
     var e = document.getElementById("render-anchor");
@@ -33,9 +38,9 @@
       child = e.lastElementChild;
     }
 
+    DrawMesh(rectangle, "red");
 
-      DrawTriangle( [[1, 1, 3], [1, -1, 3], [-1, -1, 0]], "black");   
-      DrawTriangle( [[1, 1, 3], [-1, 1, 0], [-1, -1, 0]], "red");   
+
 
     });
 
