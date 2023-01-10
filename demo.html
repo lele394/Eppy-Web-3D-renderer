@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-renderer</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+
+    <div id="render-anchor">  </div>
+
+
+  </body>
+
+  <script>
+
+
+
+    DrawTriangle( [[1, 1, 100], [1, -1, 100], [-1, -1, 0]], "black");   
+    DrawTriangle( [[1, 1, 100], [-1, 1, 0], [-1, -1, 0]], "red");   
+
+
+    var e = document.getElementById("render-anchor");
+    window.addEventListener("resize", function() {
+      //rm children
+      var child = e.lastElementChild; 
+      while (child) {
+      e.removeChild(child);
+      child = e.lastElementChild;
+    }
+
+
+      DrawTriangle( [[1, 1, 3], [1, -1, 3], [-1, -1, 0]], "black");   
+      DrawTriangle( [[1, 1, 3], [-1, 1, 0], [-1, -1, 0]], "red");   
+
+    });
+
+  </script>
+</html>
