@@ -4,8 +4,9 @@ Eppy is in a very early stage and currently only supports rendering of 3D triang
 
 Planned features are :
 
-* using .obj files
-* shading of faces
+* using .obj files (can currently use hardcoded data, parser works, see [obj-parser.js](https://github.com/lele394/Eppy-Web-3D-renderer/blob/master/js/Eppyjs/obj-parser.js)
+)
+* shading of faces (currently working on it)
 * culling
 
 Eppy currently is extremely inneficient, is heavy on the CPU, and maybe really broken. I plan on porting most of the draw calls to the GPU once the technique works.
