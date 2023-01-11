@@ -15,6 +15,7 @@ export class Mesh {
   constructor(vertices, link_map) {
     this.vertices = vertices;
     this.link_map = link_map;
+    this.position = position;
   }
 }
 
@@ -33,7 +34,20 @@ export function DrawMesh (mesh, color) {
             mesh.vertices[triangle_indices[1]],
             mesh.vertices[triangle_indices[2]]
         ]
+
+        //TransfromPoints(point, mesh.position);
+
         DrawTriangle(points, color);
     }
+
+}
+
+
+function TransfromPoints(list, offset) {
+
+  for(var i = 0; i<list.length; i++){
+
+  }
+
 
 }
