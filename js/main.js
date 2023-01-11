@@ -55,9 +55,9 @@ function TransfromPoints(list, offset) {
 
 export function RotateMesh(mesh, rotation) {
   /*takes a mesh and a rotation vector [Rx, Ry, Rz] and returns a new mesh with the new set of vertices coordinates */
-  mesh = _Rx(mesh, rotation[0]);
-  mesh = _Ry(mesh, rotation[1]);
-  mesh = _Rz(mesh, rotation[2]);
+  if(rotation[0] != 0){  mesh = _Rx(mesh, rotation[0]);}
+  if(rotation[1] != 0){  mesh = _Ry(mesh, rotation[1]);}
+  if(rotation[2] != 0){  mesh = _Rz(mesh, rotation[2]);}
 
   return mesh;
 }
@@ -105,7 +105,20 @@ function _Ry(mesh, rotation){
      y = y
      z = z*cos(t) - x*sin(t)
      */
-
+     let points = mesh.vertices;
+     let result = [];
+     for(var i = 0; i<points.length; i++) {
+       let point = points[i];
+ 
+       let x = point[2] * Math.sin(rotation) + point[0] * Math.cos(rotation);
+       let y = point[2];
+       let z = point[2] * Math.cos(rotation) - point[0] * Math.sin(rotation);
+ 
+       result.push([x, y, z]);
+ 
+     }
+ 
+     mesh.vertices = result;
      return mesh;
 
 }
@@ -120,6 +133,20 @@ function _Rz(mesh, rotation){
      y = x*sin(t) + y*cos(t)
      z = z
      */
+     let points = mesh.vertices;
+     let result = [];
+     for(var i = 0; i<points.length; i++) {
+       let point = points[i];
+ 
+       let x = point[0] * Math.cos(rotation) - point[1] * Math.sin(rotation);
+       let y = point[0] * Math.sin(rotation) + point[1] * Math.cos(rotation);
+       let z = point[3];
+ 
+       result.push([x, y, z]);
+ 
+     }
+ 
+     mesh.vertices = result;
      return mesh;
 
 

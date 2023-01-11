@@ -1,2 +1,2 @@
-export const FocalLength = 1;
-export var CameraPosition = [0, 0, -10];
+export const FocalLength = 50;
+export var CameraPosition = [0, 0, -60000];
