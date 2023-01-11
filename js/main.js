@@ -12,7 +12,7 @@ console.log("impot main.js");
 export class Mesh {
   /* vertices : list of vertex
     link_map : list of indices of vertex to connect to form a triangle : [tri, tri, tri]*/
-  constructor(vertices, link_map) {
+  constructor(vertices, link_map, position) {
     this.vertices = vertices;
     this.link_map = link_map;
     this.position = position;
