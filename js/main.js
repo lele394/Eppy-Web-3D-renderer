@@ -35,7 +35,7 @@ export function DrawMesh (mesh, color) {
             mesh.vertices[triangle_indices[2]]
         ]
 
-        //TransfromPoints(point, mesh.position);
+        points = TransfromPoints(points, mesh.position);
 
         DrawTriangle(points, color);
     }
@@ -45,9 +45,12 @@ export function DrawMesh (mesh, color) {
 
 function TransfromPoints(list, offset) {
 
+  let result = [];
   for(var i = 0; i<list.length; i++){
-
+    let point = list[i];
+    result.push(  [point[0] - offset[0], point[1] - offset[1], point[2] - offset[2]]  );
   }
 
+  return result;
 
 }
