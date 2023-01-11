@@ -27,6 +27,5 @@ function _ProjPoint(pos_object) {
     y = ((y + 1) / 2) * 100; //which is centered in 0 0
     // coordinate+1 accounts for the center of the screen being in 50% 50%
   
-    console.log([x, y]);
     return [x, y * AspectRatio]; //apsect ratio for size conservation
   }

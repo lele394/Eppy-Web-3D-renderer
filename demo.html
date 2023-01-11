@@ -19,27 +19,36 @@
   <script type="module">
 
     import {Mesh, DrawMesh} from "./js/main.js";
+    import {ConvertOBJ} from "./js/Eppyjs/obj-parser.js";
 
+    /*
     let vertices = [[1, 1, 10], [1, -1, 10], [-1, -1, 0], [-1, 1, 0]];
     let link_map = [[0, 1, 2], [0, 3, 2]];
     var rectangle = new Mesh( vertices, link_map);
-
-
+    
     DrawMesh(rectangle, "red");
+    */
 
 
+    let obj = ConvertOBJ("file_path");//obj data is hardcodded in loop for now, it's a cube
+
+    let mesh = new Mesh(obj[0], obj[1], [0, 0, 2]);
+
+    DrawMesh(mesh, "blue");
 
     var e = document.getElementById("render-anchor");
     window.addEventListener("resize", function() {
       //rm children
-      var child = e.lastElementChild; 
+      var child = e.lastElementChild;
       while (child) {
       e.removeChild(child);
       child = e.lastElementChild;
     }
+    DrawMesh(mesh, "blue");
 
+    /*
     DrawMesh(rectangle, "red");
-
+*/
 
 
     });
